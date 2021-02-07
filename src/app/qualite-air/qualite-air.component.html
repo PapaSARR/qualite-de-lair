@@ -1,0 +1,22 @@
+<h1 class="text-center">La qualité de l'air en France</h1>
+<hr/><br/>
+<div class="card text-center">
+  <div class="card-header">
+    <!--
+    <select class="form-select form-select-lg ml-4" [(ngModel)]="choix">
+    <option [value]="countries.country" *ngFor="let countries of getCountries()">
+    {{countries.country}}
+    </option>
+    </select>
+    -->
+  </div>
+  <div class="card-body">
+    <div >
+       <p>Qualité de l'air dans la ville de {{choix}}</p>
+        <button (click)="getCountries()">Voir réponse api</button>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    Mettre la date du jour...
+  </div>
+</div>
