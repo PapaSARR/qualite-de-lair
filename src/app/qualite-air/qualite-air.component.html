@@ -1,4 +1,4 @@
-<h1 class="text-center">La qualité de l'air en France</h1>
+<h1 class="text-center">Mesure de la qualité de l'air</h1>
 <hr/><br/>
 <div class="card text-center">
   <div class="card-header">
@@ -9,14 +9,49 @@
     </option>
     </select>
     -->
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+      <div>
+        <label for="ville" class="mr-3">
+          Votre nom de ville:
+        </label>
+        <input id="ville" type="text" formControlName="ville" class="mr-3">
+        <button class="button btn-secondary" type="submit">Valider</button>
+      </div>
+
+    </form>
   </div>
-  <div class="card-body">
-    <div >
-       <p>Qualité de l'air dans la ville de {{choix}}</p>
-        <button (click)="getCountries()">Voir réponse api</button>
+  <div class="card-body" *ngIf="api_response">
+    <div *ngIf="api_response.status==='ok'; else elseBlock">
+      <h4>{{api_response.data.city.name}}</h4>
+      <br/>
+      <p>Valeur AQI: <strong>{{api_response.data.aqi}}</strong></p>
+      <!--
+      //Informations détaillées
+      <div *ngIf="api_response.data.aqi<51">
+
+      </div>
+      <div *ngIf="(api_response.data.aqi==51 || api_response.data.aqi>51) && api_response.data.aqi<101">
+
+      </div>
+      <div *ngIf="(api_response.data.aqi==101 || api_response.data.aqi>101 ) && api_response.data.aqi<151">
+
+      </div>
+
+      <div *ngIf="(api_response.data.aqi==151 || api_response.data.aqi>151 ) && api_response.data.aqi<201">
+
+      </div>
+      <div *ngIf="(api_response.data.aqi==201 || api_response.data.aqi>201 ) && api_response.data.aqi<301">
+
+      </div>
+      <div *ngIf="api_response.data.aqi>300">
+
+      </div>
+      -->
     </div>
+    <ng-template #elseBlock>Désolé, pas de station dans la ville de {{choix}}</ng-template>
   </div>
-  <div class="card-footer text-muted">
-    Mettre la date du jour...
+  <div class="card-footer text-muted" *ngIf="api_response?.status==='ok'">
+    {{date | date: 'dd/MM/yyyy'}} à {{date | date : 'hh:mm'}}
   </div>
 </div>

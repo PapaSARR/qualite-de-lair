@@ -6,13 +6,12 @@ import {map, tap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class QualiteAirService {
-  url: string = "http://api.airvisual.com/v2/";
-  apiKey: string = "3b9e0879-80b0-4bbd-b3f1-fa15f4eabc57";
-
+  url: string = "https://api.waqi.info/feed/";
+  apiKey: string = "c9bfa435faa87a7b56c7e8700d45ed3a5399c4f7";
   constructor(private http: HttpClient) {}
 
-  countries(){
-    return this.http.get(this.url+"countries?key="+this.apiKey)
+  response(choix:string){
+    return this.http.get(this.url+choix+"/?token="+this.apiKey)
   }
 
 }
