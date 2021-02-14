@@ -26,32 +26,33 @@
       <h4>{{api_response.data.city.name}}</h4>
       <br/>
       <p>Valeur AQI: <strong>{{api_response.data.aqi}}</strong></p>
-      <!--
-      //Informations détaillées
-      <div *ngIf="api_response.data.aqi<51">
-
+      <strong style="text-transform: uppercase; color: blue; font-size: 16px">
+        Recommandations sanitaires pour les activites physiques
+        en exterieur et balades</strong>
+      <div *ngIf="api_response.data.aqi<51" class="mt-4">
+        <img src="assets/img/bon.png" alt="La qualité de l'air est bon" style="width: 100%" class="img-fluid">
       </div>
-      <div *ngIf="(api_response.data.aqi==51 || api_response.data.aqi>51) && api_response.data.aqi<101">
-
+      <div *ngIf="(api_response.data.aqi==51 || api_response.data.aqi>51) && api_response.data.aqi<101" class="mt-4">
+        <img src="assets/img/moyen.png" alt="La qualité de l'air est bon" style="width: 100%" class="img-fluid">
       </div>
-      <div *ngIf="(api_response.data.aqi==101 || api_response.data.aqi>101 ) && api_response.data.aqi<151">
-
+      <div *ngIf="(api_response.data.aqi==101 || api_response.data.aqi>101 ) && api_response.data.aqi<151" class="mt-4">
+        <img src="assets/img/degrade.png" alt="La qualité de l'air est bon" style="width: 100%" class="img-fluid">
       </div>
 
-      <div *ngIf="(api_response.data.aqi==151 || api_response.data.aqi>151 ) && api_response.data.aqi<201">
-
+      <div *ngIf="(api_response.data.aqi==151 || api_response.data.aqi>151 ) && api_response.data.aqi<201" class="mt-4">
+        <img src="assets/img/mauvais.png" alt="La qualité de l'air est bon" style="width: 100%" class="img-fluid">
       </div>
-      <div *ngIf="(api_response.data.aqi==201 || api_response.data.aqi>201 ) && api_response.data.aqi<301">
-
+      <div *ngIf="(api_response.data.aqi==201 || api_response.data.aqi>201 ) && api_response.data.aqi<301" class="mt-4">
+        <img src="assets/img/tres-mauvais.png" alt="La qualité de l'air est bon" style="width: 100%" class="img-fluid">
       </div>
-      <div *ngIf="api_response.data.aqi>300">
-
+      <div *ngIf="api_response.data.aqi>300" class="mt-4">
+        <img src="assets/img/dangereux.png" alt="La qualité de l'air est bon" style="width: 100%" class="img-fluid">
       </div>
-      -->
+
     </div>
     <ng-template #elseBlock>Désolé, pas de station dans la ville de {{choix}}</ng-template>
   </div>
   <div class="card-footer text-muted" *ngIf="api_response?.status==='ok'">
-    {{date | date: 'dd/MM/yyyy'}} à {{date | date : 'hh:mm'}}
+    {{date | date: 'dd/MM/yyyy'}} à {{date | date : 'hh:mm a'}}
   </div>
 </div>
