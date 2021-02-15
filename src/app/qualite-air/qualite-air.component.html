@@ -26,27 +26,190 @@
       <h4>{{api_response.data.city.name}}</h4>
       <br/>
       <p>Valeur AQI: <strong>{{api_response.data.aqi}}</strong></p>
-      <strong style="text-transform: uppercase; color: blue; font-size: 16px">
+      <br/>
+      <strong class="rec">
         Recommandations sanitaires pour les activites physiques
         en exterieur et balades</strong>
-      <div *ngIf="api_response.data.aqi<51" class="mt-4">
-        <img src="assets/img/bon.png" alt="La qualité de l'air est bon" style="width: 100%" class="img-fluid">
+      <div class="row mt-4">
+        <div class="col-md-4"><p class="titre">Niveau d'indice</p></div>
+        <div class="col-md-4"><p class="titre">Pour tous</p></div>
+        <div class="col-md-4"><p class="titre">Personnes sensibles</p></div>
       </div>
-      <div *ngIf="(api_response.data.aqi==51 || api_response.data.aqi>51) && api_response.data.aqi<101" class="mt-4">
-        <img src="assets/img/moyen.png" alt="La qualité de l'air est bon" style="width: 100%" class="img-fluid">
+      <div *ngIf="api_response.data.aqi<51">
+        <div class="row">
+          <div class="col-md-4">
+            <p style="color: aqua"><strong>BON</strong></p>
+          </div>
+
+          <div class="col-md-4">
+            <p style="color: navy">Profitez de vos activités d'extérieures habituelles</p>
+          </div>
+
+          <div class="col-md-4">
+            <p style="color: navy">Profitez de vos activités d'extérieures habituelles</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <img src="assets/img/n-bon.png" alt="La qualité de l'air est bonne" class="img-fluid">
+          </div>
+
+          <div class="col-md-4">
+            <img src="assets/img/l-bon.png" alt="La qualité de l'air est bonne" class="img-fluid">
+          </div>
+
+          <div class="col-md-4">
+            <img src="assets/img/l-bon.png" alt="La qualité de l'air est bonne" class="img-fluid">
+          </div>
+        </div>
       </div>
-      <div *ngIf="(api_response.data.aqi==101 || api_response.data.aqi>101 ) && api_response.data.aqi<151" class="mt-4">
-        <img src="assets/img/degrade.png" alt="La qualité de l'air est bon" style="width: 100%" class="img-fluid">
+      <div *ngIf="(api_response.data.aqi==51 || api_response.data.aqi>51) && api_response.data.aqi<101">
+        <div class="row">
+          <div class="col-md-4">
+            <p style="color: aquamarine"><strong>MOYEN</strong></p>
+          </div>
+
+          <div class="col-md-4">
+            <p style="color: navy">Profitez de vos activités d'extérieures habituelles</p>
+          </div>
+
+          <div class="col-md-4">
+            <p style="color: navy">Profitez de vos activités d'extérieures habituelles</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <img src="assets/img/n-moy.png" alt="La qualité de l'air est moyenne" class="img-fluid">
+          </div>
+
+          <div class="col-md-4">
+            <img src="assets/img/l-moy.png" alt="La qualité de l'air est moyenne" class="img-fluid">
+          </div>
+
+          <div class="col-md-4">
+            <img src="assets/img/l-moy.png" alt="La qualité de l'air est moyenne" class="img-fluid">
+          </div>
+        </div>
+      </div>
+      <div *ngIf="(api_response.data.aqi==101 || api_response.data.aqi>101 ) && api_response.data.aqi<151">
+        <div class="row">
+          <div class="col-md-4 mt-5">
+            <p style="color: gold"><strong>DEGRADE</strong></p>
+          </div>
+
+          <div class="col-md-4 mt-4">
+            <p style="color: navy">Profitez de vos activités d'extérieures habituelles</p>
+          </div>
+
+          <div class="col-md-4">
+            <p style="color: navy">Envisagez de réduire les activités de plein air intenses si vous
+            ressentez des symptômes. Privilégiez les sorties brèves</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <img src="assets/img/n-deg.png" alt="La qualité de l'air est dégradée" class="img-fluid">
+          </div>
+
+          <div class="col-md-4">
+            <img src="assets/img/l-deg1.png" alt="La qualité de l'air est dégradée" class="img-fluid">
+          </div>
+
+          <div class="col-md-4">
+            <img src="assets/img/l-deg2.png" alt="La qualité de l'air est dégradée" class="img-fluid">
+          </div>
+        </div>
       </div>
 
-      <div *ngIf="(api_response.data.aqi==151 || api_response.data.aqi>151 ) && api_response.data.aqi<201" class="mt-4">
-        <img src="assets/img/mauvais.png" alt="La qualité de l'air est bon" style="width: 100%" class="img-fluid">
+      <div *ngIf="(api_response.data.aqi==151 || api_response.data.aqi>151 ) && api_response.data.aqi<201">
+        <div class="row">
+          <div class="col-md-4 mt-5">
+            <p style="color: crimson"><strong>MAUVAIS</strong></p>
+          </div>
+
+          <div class="col-md-4 mt-4">
+            <p style="color: navy">Envisagez de réduire les activités physiques intenses en extérieur,
+            si vous ressentez des symptômes (yeux qui grattent, toux, maux de gorge...)</p>
+          </div>
+
+          <div class="col-md-4">
+            <p style="color: navy">Envisagez de réduire les activités physiques,
+              particuliérement à l'extérieur, surtout si vous éprouvez des symptômes
+              (yeux qui grattent, toux, maux de gorge...). Privilégiez les sorties brèves.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <img src="assets/img/n-mauv.png" alt="La qualité de l'air est mauvaise" class="img-fluid">
+          </div>
+
+          <div class="col-md-4">
+            <img src="assets/img/l-mauv.png" alt="La qualité de l'air est mauvaise" class="img-fluid">
+          </div>
+
+          <div class="col-md-4">
+            <img src="assets/img/l-mauv.png" alt="La qualité de l'air est mauvaise" class="img-fluid">
+          </div>
+        </div>
       </div>
-      <div *ngIf="(api_response.data.aqi==201 || api_response.data.aqi>201 ) && api_response.data.aqi<301" class="mt-4">
-        <img src="assets/img/tres-mauvais.png" alt="La qualité de l'air est bon" style="width: 100%" class="img-fluid">
+      <div *ngIf="(api_response.data.aqi==201 || api_response.data.aqi>201 ) && api_response.data.aqi<301">
+        <div class="row">
+          <div class="col-md-4 mt-5">
+            <p style="color: brown"><strong>TRES MAUVAIS</strong></p>
+          </div>
+
+          <div class="col-md-4 mt-4">
+            <p style="color: navy">Envisagez de réduire les activités physiques en extérieur,
+              si vous ressentez des symptômes (yeux qui grattent, toux, maux de gorge...)</p>
+          </div>
+
+          <div class="col-md-4">
+            <p style="color: navy">Réduisez les activités physiques,
+              particuliérement à l'extérieur, surtout si vous éprouvez des symptômes
+              (yeux qui grattent, toux, maux de gorge...). Privilégiez les sorties brèves.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <img src="assets/img/n-tres-mauv.png" alt="La qualité de l'air est très mauvaise" class="img-fluid">
+          </div>
+
+          <div class="col-md-4">
+            <img src="assets/img/l-tres-mauv.png" alt="La qualité de l'air est très mauvaise" class="img-fluid">
+          </div>
+
+          <div class="col-md-4">
+            <img src="assets/img/l-tres-mauv.png" alt="La qualité de l'air est très mauvaise" class="img-fluid">
+          </div>
+        </div>
       </div>
       <div *ngIf="api_response.data.aqi>300" class="mt-4">
-        <img src="assets/img/dangereux.png" alt="La qualité de l'air est bon" style="width: 100%" class="img-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <p style="color: blueviolet"><strong>DANGEREUX</strong></p>
+          </div>
+
+          <div class="col-md-4">
+            <p style="color: navy">Evitez les activités physiques à l'extérieur.</p>
+          </div>
+
+          <div class="col-md-4">
+            <p style="color: navy">Evitez les activités physiques à l'extérieur.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <img src="assets/img/n-mauv.png" alt="La qualité de l'air est dangereuse" class="img-fluid">
+          </div>
+
+          <div class="col-md-4">
+            <img src="assets/img/l-mauv.png" alt="La qualité de l'air est dangereuse" class="img-fluid">
+          </div>
+
+          <div class="col-md-4">
+            <img src="assets/img/l-mauv.png" alt="La qualité de l'air est dangereuse" class="img-fluid">
+          </div>
+        </div>
       </div>
 
     </div>
