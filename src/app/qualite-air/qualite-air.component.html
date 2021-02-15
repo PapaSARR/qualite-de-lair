@@ -32,12 +32,12 @@
         en exterieur et balades</strong>
       <div class="row mt-4">
         <div class="col-md-4"><p class="titre">Niveau d'indice</p></div>
-        <div class="col-md-4"><p class="titre">Pour tous</p></div>
+        <div class="col-md-4"><p class="titre">Personnes bien portantes</p></div>
         <div class="col-md-4"><p class="titre">Personnes sensibles</p></div>
       </div>
       <div *ngIf="api_response.data.aqi<51">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 mt-4">
             <p style="color: aqua"><strong>BON</strong></p>
           </div>
 
@@ -65,7 +65,7 @@
       </div>
       <div *ngIf="(api_response.data.aqi==51 || api_response.data.aqi>51) && api_response.data.aqi<101">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 mt-4">
             <p style="color: aquamarine"><strong>MOYEN</strong></p>
           </div>
 
@@ -165,7 +165,7 @@
 
           <div class="col-md-4">
             <p style="color: navy">Réduisez les activités physiques,
-              particuliérement à l'extérieur, surtout si vous éprouvez des symptômes
+              particuliérement à l'extérieur, surtout si vous ressentez des symptômes
               (yeux qui grattent, toux, maux de gorge...). Privilégiez les sorties brèves.</p>
           </div>
         </div>
@@ -199,15 +199,15 @@
         </div>
         <div class="row">
           <div class="col-md-4">
-            <img src="assets/img/n-mauv.png" alt="La qualité de l'air est dangereuse" class="img-fluid">
+            <img src="assets/img/n-dang.png" alt="La qualité de l'air est dangereuse" class="img-fluid">
           </div>
 
           <div class="col-md-4">
-            <img src="assets/img/l-mauv.png" alt="La qualité de l'air est dangereuse" class="img-fluid">
+            <img src="assets/img/l-dang.png" alt="La qualité de l'air est dangereuse" class="img-fluid">
           </div>
 
           <div class="col-md-4">
-            <img src="assets/img/l-mauv.png" alt="La qualité de l'air est dangereuse" class="img-fluid">
+            <img src="assets/img/l-dang.png" alt="La qualité de l'air est dangereuse" class="img-fluid">
           </div>
         </div>
       </div>
