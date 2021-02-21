@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {map, tap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,8 @@ export class QualiteAirService {
   apiKey: string = "c9bfa435faa87a7b56c7e8700d45ed3a5399c4f7";
   constructor(private http: HttpClient) {}
 
-  response(choix:string){
-    return this.http.get(this.url+choix+"/?token="+this.apiKey)
+  response(choix:string): Observable<any>{
+    return this.http.get<any>(this.url+choix+"/?token="+this.apiKey)
   }
 
 }
