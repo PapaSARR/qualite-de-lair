@@ -1,12 +1,3 @@
-h1{
-  word-wrap: break-word;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -o-hyphens: auto;
-  hyphens: auto;
-}
-
 @media screen and (max-width: 768px) {
   h1{
     font-size:14px;

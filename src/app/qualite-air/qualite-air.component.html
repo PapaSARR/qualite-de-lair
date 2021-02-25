@@ -16,39 +16,34 @@
     <div *ngIf="api_response.status==='ok'; else elseBlock">
       <h4>{{api_response.data.city.name}}</h4>
       <br/>
-      <p>Valeur AQI: <strong>{{api_response.data.aqi}}</strong></p>
-      <br/>
+      <div style="vertical-align: middle">
+          <strong class="rec">Qualité de l'air: <span style="color:{{couleur}}">{{niveau_indice}}</span></strong>
+          <p>Polluants majoritaires: <span style="color:{{couleur}}">{{api_response.data.dominentpol}}</span></p>
+          <img src="{{path_img_indice}}" class="img-fluid mt-3">
+      </div>
+      <br/><br/>
       <strong class="rec">
         Recommandations sanitaires pour les activites physiques
         en exterieur et balades</strong>
       <div class="row mt-4">
-        <div class="col-md-4"><p class="titre">Niveau d'indice</p></div>
-        <div class="col-md-4"><p class="titre">Personnes bien portantes</p></div>
-        <div class="col-md-4"><p class="titre">Personnes sensibles</p></div>
+        <div class="col-md-6"><p class="titre">Personnes bien portantes</p></div>
+        <div class="col-md-6"><p class="titre">Personnes sensibles</p></div>
       </div>
       <div class="row">
-        <div class="col-md-4 mt-4">
-          <p style="color:{{couleur}}"><strong>{{niveau_indice}}</strong></p>
-        </div>
-
-        <div class="col-md-4">
+        <div class="col-md-6">
           <p style="color: navy">{{desc_bp}}</p>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-6">
           <p style="color: navy">{{desc_sens}}</p>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4">
-          <img src="{{path_img_indice}}" class="img-fluid">
-        </div>
-
-        <div class="col-md-4">
+        <div class="col-md-6">
           <img src="{{path_img_bp}}" class="img-fluid">
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-6">
           <img src="{{path_img_sens}}" class="img-fluid">
         </div>
       </div>
